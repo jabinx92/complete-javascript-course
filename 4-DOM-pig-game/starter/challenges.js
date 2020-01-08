@@ -10,7 +10,10 @@ GAME RULES:
 */
 var scores, roundScore, activePlayer, gamePlaying, previousRoll;
 gamePlaying = true;
+
 init();
+
+var lastDice;
 
 // dice = Math.floor(Math.random() * 6 + 1);
 // console.log(dice);
@@ -22,7 +25,7 @@ init();
 // console.log(x)
 function nextPlayer () {
     activePlayer === 0 ? activePlayer = 1: activePlayer = 0;
-        console.log(activePlayer);
+        // console.log(activePlayer);
         roundScore = 0;
         document.getElementById('current-0').textContent = roundScore;
         document.getElementById('current-1').textContent = roundScore;
@@ -73,7 +76,12 @@ if(gamePlaying){
     
     
         //if number is 1, reset current to zero and move to the next player
-        if(dice !== 1) {
+        if(dice === 6 && lastDice === 6){
+            //player loses score
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = 0;
+            nextPlayer();
+        } else if(dice !== 1) {
             //add score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -81,6 +89,9 @@ if(gamePlaying){
             //next player
             nextPlayer();
         }
+
+        lastDice = dice;
+
 }
 
 });
