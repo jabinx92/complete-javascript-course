@@ -155,18 +155,18 @@
  * Boolean Logic
  */
 
-//  var firstName = 'John';
-//  var age = 19;
+ var firstName = 'John';
+ var age = 27;
 
-//  if (age < 13) {
-//      console.log(firstName + ' is a boy.');
-//  } else if (age >= 13 && age < 20) { //between 13 and 20
-//     console.log(firstName + ' is a teenager.')
-//  } else if (age >= 20 && age < 30) {
-//     console.log(firstName + ' is a young man.')
-//  } else {
-//      console.log(firstName + ' is a man.')
-//  } 
+ if (age < 13) {
+     console.log(firstName + ' is a boy.');
+ } else if (age >= 13 && age < 20) { //between 13 and 20
+    console.log(firstName + ' is a teenager.')
+ } else if (age >= 20 && age < 30) {
+    console.log(firstName + ' is a young man.')
+ } else {
+     console.log(firstName + ' is a man.')
+ } 
 
 /****************
  * The Ternary Operator and Switch Statements
@@ -493,10 +493,10 @@
 
  var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
 
- //for loop
-//  for(var i = 0; i < john.length; i++) {
-//      console.log(john[i]);
-//  }
+//  for loop
+ for(var i = 0; i < john.length; i++) {
+     console.log(john[i]);
+ }
 
 
 //while loop
