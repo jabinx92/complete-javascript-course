@@ -401,65 +401,73 @@ c) correct answer (I would use a number for this)
 
 (function() {
 
-  function Question (question, answers, correctAnswer){
-    this.question = question;
-    this.answers = answers;
-    this.correctAnswer = correctAnswer;
-  };
-  
-  Question.prototype.displayQuestion = function() {
-    console.log(this.question);
-  
-    for(var key in this.answers){
-      console.log(key + ': ' +this.answers[key]);
-    }
-  };
-  
-  Question.prototype.checkAnswer = function (ans) {
-    if(ans === this.correctAnswer) {
-      console.log('Correct answer!');
+function Question (question, answers, correctAnswer){
+  this.question = question;
+  this.answers = answers;
+  this.correctAnswer = correctAnswer;
+};
+
+Question.prototype.displayQuestion = function() {
+  console.log(this.question);
+
+  for(var key in this.answers){
+    console.log(key + ': ' +this.answers[key]);
+  }
+};
+
+Question.prototype.checkAnswer = function (ans) {
+  if(ans == this.correctAnswer) {
+    console.log('Correct answer!');
+  } else {
+    console.log('Wrong answer. Try again!');
+  }
+};
+
+var question1 = new Question ('What country was Johnny born in?', {
+  0: 'New Zealand',
+  1: 'USA',
+  2: 'Africa'
+}, '0');
+
+var question2 = new Question (`What is Johnny's favorite food?`, {
+  0:'Durian',
+  1:'Chocolate',
+  2:'Gummy Worms'
+}, '2');
+
+var question3 = new Question (`What is John's favorite color?`, {
+  0:'black',
+  1:'green',
+  2:'blue',
+  3:'red',
+}, '2');
+
+var question4 = new Question ('What paintball team is Michael Urena on?', {
+  0:'Infamous',
+  1:'Dynasty',
+  2:'Aftershock',
+  3:'Uprising',
+}, '1')
+
+var storedQuestions = [question1, question2, question3, question4];
+
+
+// var infinity = function () {
+//   for ( var i = 1; i <= 5; i++){
+    var n = Math.floor(Math.random() * storedQuestions.length);
+    storedQuestions[n].displayQuestion();
+
+    var answer = prompt('Please select the correct answer (just type the number).');
+    if (answer == '2') {
+      return;
     } else {
-      console.log('Wrong answer. Try again!');
+      console.log(typeof answer);
+      storedQuestions[n].checkAnswer(answer);
     }
-  };
-  
-  var question1 = new Question ('What country was Johnny born in?', {
-    0: 'New Zealand',
-    1: 'USA',
-    2: 'Africa'
-  }, '0');
-  // console.log(question1);
-  
-  var question2 = new Question (`What is Johnny's favorite food?`, {
-    0:'Durian',
-    1:'Chocolate',
-    2:'Gummy Worms'
-  }, '2');
-  // console.log(question2);
-  
-  var question3 = new Question (`What is John's favorite color?`, {
-    0:'black',
-    1:'green',
-    2:'blue',
-    3:'red',
-  }, '2');
-  // console.log(question3);
-  
-  var question4 = new Question ('What paintball team is Michael Urena on?', {
-    0:'Infamous',
-    1:'Dynasty',
-    2:'Aftershock',
-    3:'Uprising',
-  }, '1')
-  
-  var storedQuestions = [question1, question2, question3, question4];
-  
-  var n = Math.floor(Math.random() * storedQuestions.length)
-  storedQuestions[n].displayQuestion();
-  
-  var answer = prompt('Please select the correct answer (just type the number).');
-  
-  storedQuestions[n].checkAnswer(answer);
+//   }
+// }
+// infinity();
+
 })();
 
 
@@ -474,4 +482,6 @@ c) correct answer (I would use a number for this)
 
 11. Display the score in the console. Use yet another method for this.
 */
+
+
 
