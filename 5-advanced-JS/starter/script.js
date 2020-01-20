@@ -400,6 +400,7 @@ c) correct answer (I would use a number for this)
 */
 
 (function() {
+  var count = 0;
 
 function Question (question, answers, correctAnswer){
   this.question = question;
@@ -415,32 +416,42 @@ Question.prototype.displayQuestion = function() {
   }
 };
 
-Question.prototype.checkAnswer = function (ans) {
+Question.prototype.checkAnswer = function (ans, callback) {
+  var sc;
+
   if(ans == this.correctAnswer) {
     console.log('Correct answer!');
+    sc = callback(true);
   } else {
     console.log('Wrong answer. Try again!');
+    sc = callback(false);
   }
+  this.displayScore(sc);
+};
+
+Question.prototype.displayScore = function (score) {
+    console.log(`Your current score is: ${score}`);
+    console.log(`=======================`);
 };
 
 var question1 = new Question ('What country was Johnny born in?', {
-  0: 'New Zealand',
-  1: 'USA',
+  0: 'USA',
+  1: 'New Zealand',
   2: 'Africa'
-}, '0');
+}, '1');
 
 var question2 = new Question (`What is Johnny's favorite food?`, {
   0:'Durian',
-  1:'Chocolate',
-  2:'Gummy Worms'
-}, '2');
+  1:'Gummy Worms',
+  2:'Chocolate'
+}, '1');
 
 var question3 = new Question (`What is John's favorite color?`, {
   0:'black',
-  1:'green',
-  2:'blue',
+  1:'blue',
+  2:'green',
   3:'red',
-}, '2');
+}, '1');
 
 var question4 = new Question ('What paintball team is Michael Urena on?', {
   0:'Infamous',
@@ -449,24 +460,31 @@ var question4 = new Question ('What paintball team is Michael Urena on?', {
   3:'Uprising',
 }, '1')
 
-var storedQuestions = [question1, question2, question3, question4];
+var storedQuestions = [question1, question2, question3, question4]; 
 
+function score () {
+  var sc = 0;
+  return function (correct) {
+    if(correct) {
+      sc++;
+    }
+    return sc;
+  }
+}
+var keepScore = score();
 
-// var infinity = function () {
-//   for ( var i = 1; i <= 5; i++){
+function nextQuestion() {
     var n = Math.floor(Math.random() * storedQuestions.length);
     storedQuestions[n].displayQuestion();
 
     var answer = prompt('Please select the correct answer (just type the number).');
-    if (answer == '2') {
-      return;
-    } else {
-      console.log(typeof answer);
-      storedQuestions[n].checkAnswer(answer);
-    }
-//   }
-// }
-// infinity();
+    if (answer !== 'exit') {
+      storedQuestions[n].checkAnswer(answer, keepScore);
+
+      nextQuestion();
+    } 
+}
+nextQuestion();
 
 })();
 
