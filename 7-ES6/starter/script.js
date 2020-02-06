@@ -131,32 +131,32 @@
  * Lecture: Arrow Functions 2
  */
 
- //ES5
-var box5 = {
-    color: 'green',
-    position: 1,
-    clickMe: function () {
-        var self = this;
-        document.querySelector('.green').addEventListener('click', function () {
-            var str = `This is box number ${self.position} and it is ${self.color}`;
-            alert(str);
-        });
-    }
-}
+//  //ES5
+// var box5 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         var self = this;
+//         document.querySelector('.green').addEventListener('click', function () {
+//             var str = `This is box number ${self.position} and it is ${self.color}`;
+//             alert(str);
+//         });
+//     }
+// }
 
 // box5.clickMe();
 
-//ES6
-const box6 = {
-    color: 'green',
-    position: 1,
-    clickMe: function () {
-        document.querySelector('.green').addEventListener('click', () => {
-            var str = `This is box number ${this.position} and it is ${this.color}`;
-            alert(str);
-        });
-    }
-}
+// //ES6
+// const box6 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         document.querySelector('.green').addEventListener('click', () => {
+//             var str = `This is box number ${this.position} and it is ${this.color}`;
+//             alert(str);
+//         });
+//     }
+// }
 
 // box6.clickMe();
 
@@ -175,117 +175,117 @@ const box66 = {
 box66.clickMe();
 */
 
-function Person(name) {
-    this.name = name;
-}
+// function Person(name) {
+//     this.name = name;
+// }
 
-//ES5
-Person.prototype.myFriends5 = function (friends) {
-    var arr = friends.map(function (el) {
-        return this.name + ' is friends with ' + el;
-    }.bind(this));
+// //ES5
+// Person.prototype.myFriends5 = function (friends) {
+//     var arr = friends.map(function (el) {
+//         return this.name + ' is friends with ' + el;
+//     }.bind(this));
 
-    console.log(arr);
-}
+//     console.log(arr);
+// }
 
-var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends5(friends);
+// var friends = ['Bob', 'Jane', 'Mark'];
+// new Person('John').myFriends5(friends);
 
-// ES6
-Person.prototype.myFriends6 = function (friends) {
-    var arr = friends.map(el => 
-    `${this.name} is friends with ${el}`
-    );
+// // ES6
+// Person.prototype.myFriends6 = function (friends) {
+//     var arr = friends.map(el => 
+//     `${this.name} is friends with ${el}`
+//     );
 
-    console.log(arr);
-}
+//     console.log(arr);
+// }
 
-new Person('Mike').myFriends6(friends);
+// new Person('Mike').myFriends6(friends);
 
 /**
  * Lecture: Destructuring
 */
 
-// ES5
-var john = ['John', 26];
-// var name = john[0];
-// var age = john[1];
+// // ES5
+// var john = ['John', 26];
+// // var name = john[0];
+// // var age = john[1];
 
-// ES6
-const [name, age] = ['John', 26];
-console.log(name);
-console.log(age);
+// // ES6
+// const [name, age] = ['John', 26];
+// console.log(name);
+// console.log(age);
 
-const obj = {
-    firstName: 'John',
-    lastName: 'Smith'
-};
+// const obj = {
+//     firstName: 'John',
+//     lastName: 'Smith'
+// };
 
-const {firstName, lastName} = obj;
-console.log(firstName);
-console.log(lastName);
+// const {firstName, lastName} = obj;
+// console.log(firstName);
+// console.log(lastName);
 
-const {firstName: aa, lastName: bb} = obj;
-console.log(aa);
-console.log(bb);
+// const {firstName: aa, lastName: bb} = obj;
+// console.log(aa);
+// console.log(bb);
 
-function calcAgeRetirement(year) {
-    const age = new Date().getFullYear() - year;
-    return [age, 65 - age];
-}
+// function calcAgeRetirement(year) {
+//     const age = new Date().getFullYear() - year;
+//     return [age, 65 - age];
+// }
 
-const [age2, retirement] = calcAgeRetirement(1990);
-console.log(age2);
-console.log(retirement);
+// const [age2, retirement] = calcAgeRetirement(1990);
+// console.log(age2);
+// console.log(retirement);
 
 /**
  * Free code camp destructuring
  */
 
-var voxel = {x: 3.6, y: 7.4, z: 6.54};
-const {x, y, z} = voxel;
-console.log(x);
-const {x: a, y: b, z: c} = voxel;
-console.log(b);
+// var voxel = {x: 3.6, y: 7.4, z: 6.54};
+// const {x, y, z} = voxel;
+// console.log(x);
+// const {x: a, y: b, z: c} = voxel;
+// console.log(b);
 
-//Assign variables from nested objects
-const nest = {
-    start: {x:5, y:6},
-    end: {x: 6, y: -9}
-};
-const { start: {x: startX, y: startY}} = nest;
-console.log(startX);
+// //Assign variables from nested objects
+// const nest = {
+//     start: {x:5, y:6},
+//     end: {x: 6, y: -9}
+// };
+// const { start: {x: startX, y: startY}} = nest;
+// console.log(startX);
 
-// Assign Variables from Arrays
-const [q,,,r] = [1, 2, 3, 4, 5];
-console.log(q, r); // prints 1 4
+// // Assign Variables from Arrays
+// const [q,,,r] = [1, 2, 3, 4, 5];
+// console.log(q, r); // prints 1 4
 
-//Rest operator to Reassign Array Elements
-const [e, f, ...rest] = [1,2,3,4,5];
-console.log(e, f);
-console.log(rest);
+// //Rest operator to Reassign Array Elements
+// const [e, f, ...rest] = [1,2,3,4,5];
+// console.log(e, f);
+// console.log(rest);
 
-const profileUpdate = ({name, age}) => {
-    // do something with these variables
-}
+// const profileUpdate = ({name, age}) => {
+//     // do something with these variables
+// }
 
 /*******
  * Lecture: ES6 Arrays
  */
 
-const boxes = document.querySelectorAll('.box');
+// const boxes = document.querySelectorAll('.box');
 
-//ES5
+// //ES5
 
-var boxesArr5 = Array.prototype.slice.call(boxes);
-boxesArr5.forEach(function(cur) {
-    cur.style.backgroundColor = 'dodgerblue';
-});
+// var boxesArr5 = Array.prototype.slice.call(boxes);
+// boxesArr5.forEach(function(cur) {
+//     cur.style.backgroundColor = 'dodgerblue';
+// });
 
 
-//ES6
-const boxesArr6 = Array.from(boxes)
-Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+// //ES6
+// const boxesArr6 = Array.from(boxes)
+// Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
 //ES5
 /*
@@ -298,95 +298,96 @@ for(var i = 0; i < boxesArr5.length; i++) {
 */
 
 //ES6
-for(const cur of boxesArr6) {
-    if(cur.className.includes('blue')) {
-        continue;
-    } 
-    cur.textContent = 'I changed to blue!';
-}
+// for(const cur of boxesArr6) {
+//     if(cur.className.includes('blue')) {
+//         continue;
+//     } 
+//     cur.textContent = 'I changed to blue!';
+// }
 
-//ES5
-var ages = [12, 17, 8, 21, 14, 11];
-var full = ages.map(function (cur) {
-    return cur >= 18;
-})
-console.log(full);
+// //ES5
+// var ages = [12, 17, 8, 21, 14, 11];
+// var full = ages.map(function (cur) {
+//     return cur >= 18;
+// })
+// console.log(full);
 
-console.log(full.indexOf(true));
-console.log(ages[full.indexOf(true)]);
+// console.log(full.indexOf(true));
+// console.log(ages[full.indexOf(true)]);
 
-//ES6
-console.log(ages.findIndex(cur => cur >= 18));
-console.log(ages.find(cur => cur >= 18));
+// //ES6
+// console.log(ages.findIndex(cur => cur >= 18));
+// console.log(ages.find(cur => cur >= 18));
 
 /**
  * Lecture: Spread Operator
  */
 
-function addFourAges(a,b,c,d) {
-    return a + b + c + d;
-}
+// function addFourAges(a,b,c,d) {
+//     return a + b + c + d;
+// }
 
-var sum1 = addFourAges(18, 30, 12, 21);
-console.log(sum1);
+// var sum1 = addFourAges(18, 30, 12, 21);
+// console.log(sum1);
 
-//ES5
-var ages = [18,30,12,21];
-var sum2 = addFourAges.apply(null, ages);
+// //ES5
+// var ages = [18,30,12,21];
+// var sum2 = addFourAges.apply(null, ages);
 
-console.log(sum2);
+// console.log(sum2);
 
-//ES6
-const sum3 = addFourAges(...ages);
-console.log(sum3);
+// //ES6
+// const sum3 = addFourAges(...ages);
+// console.log(sum3);
 
-const familySmith = ['John','Jane','Mark'];
-const familyMiller = ['Mary','Bob','Ann'];
-const bigFamily = [...familySmith, ...familyMiller];
-console.log(bigFamily);
+// const familySmith = ['John','Jane','Mark'];
+// const familyMiller = ['Mary','Bob','Ann'];
+// const bigFamily = [...familySmith, ...familyMiller];
+// console.log(bigFamily);
 
-const h = document.querySelector('h1');
-const boxes1 = document.querySelectorAll('.box');
-const all = [h, ...boxes1];
+// const h = document.querySelector('h1');
+// const boxes1 = document.querySelectorAll('.box');
+// const all = [h, ...boxes1];
 
-Array.from(all).forEach(cur => cur.style.color = 'purple');
+// Array.from(all).forEach(cur => cur.style.color = 'purple');
 
 /**
  * freecode camp spread operator
  */
 
-var certsToAdd = [2,3,4,5];
-var certifications = [1,...certsToAdd, 6]
-console.log(certifications);
+//  //SPREAD
+// var certsToAdd = [2,3,4,5];
+// var certifications = [1,...certsToAdd, 6]
+// console.log(certifications);
 
-var addFunction = function (x, y, z) {
-    console.log(x+y+z)
-}
-var args = [1,2,3,4];
-addFunction(...args);
+// var addFunction = function (x, y, z) {
+//     console.log(x+y+z)
+// }
+// var args = [1,2,3,4];
+// addFunction(...args);
 
-//copy arrays
-var arr = [1,2,3]
-var arr2 = [...arr]
-arr2.push(4);
-console.log(arr);
-console.log(arr2);
+// //copy arrays
+// var arr = [1,2,3]
+// var arr2 = [...arr]
+// arr2.push(4);
+// console.log(arr);
+// console.log(arr2);
 
-//concatenate arrays
-var arr1 = [0, 1, 2];
-var arr2 = [0, 1, 2];
-// arr1.concat(arr2);
-arr1 = [...arr1, 'freeCodeCamp', ...arr2];
-console.log(arr1)
+// //concatenate arrays
+// var arr1 = [0, 1, 2];
+// var arr2 = [0, 1, 2];
+// // arr1.concat(arr2);
+// arr1 = [...arr1, 'freeCodeCamp', ...arr2];
+// console.log(arr1)
 
-//REST: condense mutliple elemtns into an array
-function multiply(multiplier, ...theArgs){
-    return theArgs.map(function(element){
-        return multiplier * element;
-    });
-}
-var arr = multiply(2,1,2,3);
-console.log(arr);
+// //REST: condense mutliple elements into an array
+// function multiply(multiplier, ...theArgs){
+//     return theArgs.map(function(element){
+//         return multiplier * element;
+//     });
+// }
+// var arr = multiply(2,1,2,3);
+// console.log(arr);
 
 
 /**
@@ -419,23 +420,90 @@ isFullAge6(1990, 1999, 1965, 2016, 1987);
 // Spread Operator is unpacking collected elements such as arrays into single elements .
 */
 
-function isFullAge5(limit) {
-    console.log(arguments);
-    var argsArr = Array.prototype.slice.call(arguments ,1);
-    console.log(argsArr);
+// function isFullAge5(limit) {
+//     console.log(arguments);
+//     var argsArr = Array.prototype.slice.call(arguments ,1);
+//     console.log(argsArr);
 
-    argsArr.forEach(function(cur){
-        console.log((2020 - cur) >= limit);
-    })
+//     argsArr.forEach(function(cur){
+//         console.log((2020 - cur) >= limit);
+//     })
+// }
+
+// // isFullAge5(16, 1990,1999,1965);
+// // isFullAge5(1990, 1999, 1965, 2016, 1987);
+
+
+
+// //ES6
+// function isFullAge6(limit, ...years) {
+//     years.forEach(cur => console.log(2020 - cur >= limit))
+// }
+// isFullAge6(16, 1990, 1999, 1965, 2016, 1987);
+
+/**
+ * Lectures: Default Parameters
+ */
+
+ /*
+//ES5
+function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
+
+    lastName === undefined ? lastName = 'Smith': lastName;
+    nationality === undefined ? nationality = 'American':nationality;
+
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.yearOfBirth = yearOfBirth;
+    this.nationality = nationality;
+}
+*/
+
+// //ES6
+// function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'American') {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.yearOfBirth = yearOfBirth;
+//     this.nationality = nationality;
+// }
+// var john = new SmithPerson('John', 1990);
+// var emily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish');
+
+// function WonFamily(firstName, age, lastName = 'Won', firstToy = 'Trex', lightSaberColor = 'blue'){
+//     this.firstName = firstName;
+//     this.age = age;
+//     this.lastName = lastName;
+//     this.firstToy = firstToy;
+//     this.lightSaberColor = lightSaberColor;
+// }
+
+// var johnny = new WonFamily('Johnny', 28);
+// var johnny2 = new WonFamily('Johnny', 26);
+
+/**
+ * Lectures: Maps
+ */
+
+const question = new Map();
+question.set('question', 'What is the official name of the latest major JavaScript version?');
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct', 3);
+question.set(true, 'Correct answer :D');
+question.set(false, 'Wrong, please try again!');
+
+console.log(question.get('question'));
+console.log(question.size);
+
+if(question.has(4)){
+    // question.delete(4);
+    console.log('Answer 4 is here.')
 }
 
-// isFullAge5(16, 1990,1999,1965);
-// isFullAge5(1990, 1999, 1965, 2016, 1987);
+// question.clear();
 
+question.forEach((value, key) => 
+console.log(`This is ${key}, and it's set to ${value}`));
 
-
-//ES6
-function isFullAge6(limit, ...years) {
-    years.forEach(cur => console.log(2020 - cur >= limit))
-}
-isFullAge6(16, 1990, 1999, 1965, 2016, 1987);
