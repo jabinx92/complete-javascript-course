@@ -7,18 +7,30 @@
 // name5 = 'Jane Miller';
 // console.log(name5);
 
+// var name55 = 'Johnny Won';
+// var age55 = 28;
+// name55 = 'Jonathan Won';
+// console.log(name55);
+// age55 = 30;
+// console.log(age55);
+
+
 // // ES6
 // const name6 = 'Jane Smith';
 // let age6 = 23;
 // // name6 = 'Jane Miller';
 // console.log(name6);
 
+// const name66 = 'Jonathan Won';
+// // name66 = 'Johnny Won';
+// console.log(name66);
+
 
 // // ES5
 // function driversLicense5(passedTest){
 //     if(passedTest) {
-//         console.log(firstName)
 //         var firstName = 'John';
+//         console.log(firstName);
 //         var yearOfBirth = 1990;
 
         
@@ -27,6 +39,17 @@
 // }
 
 // driversLicense5(true);
+
+// function driversLicense55(passedTest) {
+//     if(passedTest) {
+//         var firstName = 'Johnny';
+//         console.log(firstName);
+//         var yearOfBirth = 1992;
+//     }
+//     console.log(`${firstName}, born in ${yearOfBirth} is now officially allowed to drive a car.`)
+// }
+
+// driversLicense55(1);
 
 // //ES6
 // function driversLicense6(passedTest){
@@ -42,6 +65,18 @@
 
 // driversLicense6(true);
 
+// function driversLicense66(passedTest) {
+//     let firstName;
+//     const yearOfBirth = 1992;
+
+//     if(passedTest) {
+//         firstName = 'Johnny';
+//     }
+//     console.log(`${firstName}, born in ${yearOfBirth} is now officially allowed to drive a car.`);
+// }
+
+// driversLicense66(true);
+
 
 
 // let runIt = function () {
@@ -52,10 +87,10 @@
 //     }
     
 //     console.log(i);
-//     return emptyArray
+//     return emptyArray;
     
 // }
-// runIt();
+// console.log(runIt());
 
 
 /***
@@ -70,6 +105,14 @@
 // }
 
 // // console.log(a + b);
+// console.log(c);
+
+// {
+//     const a = 'johnny';
+//     let b = 'won';
+//     var c = 23;
+// }
+
 // console.log(c);
 
 
@@ -92,7 +135,7 @@
 // console.log('This is ' + firstName + ' ' + lastName +'. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
 
 // // ES6
-// console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}/ Today, he is ${calcAge(yearOfBirth)} years old.`);
+// console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
 
 // const n = `${firstName} ${lastName}`;
 // console.log(n.startsWith('J'));
@@ -111,14 +154,30 @@
 //     return 2020 - el;
 // });
 
-// console.log(ages5);
+// var ages55 = years.map(function (el){
+//     return 2020 - el;
+// })
 
-// // ES6
+// // console.log(ages5);
+// // console.log(ages55);
+
+// // // ES6
 // let ages6 = years.map(el => 2020 - el);
 // console.log(ages6);
 
+// let ages66 = years.map(el => 1000 - el);
+// console.log(ages66);
+
 // ages6 = years.map((el, index) => `Age element ${index + 1}: ${2020 - el}`);
 // console.log(ages6);
+
+// let years1 = [1992, 1987, 1990];
+
+// const age66 = years1.map(el => 2020 - el);
+// console.log(age66);
+
+// const age77 = years1.map((el, index) => `Age element ${index + 1} : ${2020 - el}`);
+// console.log(age77)
 
 // ages6 = years.map((el, index) => {
 //     const now = new Date().getFullYear();
@@ -127,38 +186,62 @@
 // });
 // console.log(ages6);
 
+// ages6 = years.map((el, index) => {
+//     const now = new Date().getFullYear();
+//     const age = now - el;
+//     return `Age element ${index + 1}: ${age}`
+// })
+// console.log(ages6);
+
+
 /**
  * Lecture: Arrow Functions 2
  */
 
-//  //ES5
-// var box5 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         var self = this;
-//         document.querySelector('.green').addEventListener('click', function () {
-//             var str = `This is box number ${self.position} and it is ${self.color}`;
-//             alert(str);
-//         });
-//     }
-// }
+ //ES5
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function () {
+        var self = this;
+        document.querySelector('.green').addEventListener('click', function () {
+            var str = `This is box number ${self.position} and it is ${self.color}`;
+            alert(str);
+        });
+    }
+}
 
 // box5.clickMe();
 
-// //ES6
-// const box6 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function () {
-//         document.querySelector('.green').addEventListener('click', () => {
-//             var str = `This is box number ${this.position} and it is ${this.color}`;
-//             alert(str);
-//         });
-//     }
-// }
 
-// box6.clickMe();
+
+// //ES6
+const box6 = {
+    color: 'green',
+    position: 1,
+    clickMe: function () {
+        document.querySelector('.green').addEventListener('click', () => {
+            var str = `This is box number ${this.position} and it is ${this.color}`;
+            alert(str);
+        });
+    }
+}
+
+box6.clickMe();
+
+const box66 = {
+    color: 'blue',
+    position: 2,
+    clickMe : function () {
+        document.querySelector('.blue').addEventListener('click', () => {
+            var str = `This is box number ${this.position} and it is ${this.color}.`
+            alert(str);
+        });
+    }
+}
+
+box66.clickMe();
+
 
 /*
 const box66 = {
@@ -602,69 +685,69 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
  */
 
 //ES5
-var Person5 = function(name, yearOfBirth, job) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
-}
+// var Person5 = function(name, yearOfBirth, job) {
+//     this.name = name;
+//     this.yearOfBirth = yearOfBirth;
+//     this.job = job;
+// }
 
-Person5.prototype.calculateAge = function() {
-    var age = new Date().getFullYear() - this.yearOfBirth;
-    console.log(age);
-}
+// Person5.prototype.calculateAge = function() {
+//     var age = new Date().getFullYear() - this.yearOfBirth;
+//     console.log(age);
+// }
 
-var Athlete5 = function(name, yearOfBirth, job, olymicGames, medals) {
-    Person5.call(this, name, yearOfBirth, job);
-    this.olymicGames = olymicGames;
-    this.medals = medals;
-}
+// var Athlete5 = function(name, yearOfBirth, job, olymicGames, medals) {
+//     Person5.call(this, name, yearOfBirth, job);
+//     this.olymicGames = olymicGames;
+//     this.medals = medals;
+// }
 
-Athlete5.prototype = Object.create(Person5.prototype);
-
-
-Athlete5.prototype.wonMedal = function() {
-    this.medals++;
-    console.log(this.medals);
-}
+// Athlete5.prototype = Object.create(Person5.prototype);
 
 
-var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
+// Athlete5.prototype.wonMedal = function() {
+//     this.medals++;
+//     console.log(this.medals);
+// }
 
-johnAthlete5.calculateAge();
-johnAthlete5.wonMedal();
+
+// var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
+
+// johnAthlete5.calculateAge();
+// johnAthlete5.wonMedal();
 
 
-//ES6
-class Person6 {
-    constructor (name, yearOfBirth, job) {
-        this.name = name;
-        this.yearOfBirth = yearOfBirth;
-        this.job = job;
-    }
+// //ES6
+// class Person6 {
+//     constructor (name, yearOfBirth, job) {
+//         this.name = name;
+//         this.yearOfBirth = yearOfBirth;
+//         this.job = job;
+//     }
 
-    calculateAge() {
-        var age = new Date().getFullYear() - this.yearOfBirth;
-        console.log(age);
-    }
-}
+//     calculateAge() {
+//         var age = new Date().getFullYear() - this.yearOfBirth;
+//         console.log(age);
+//     }
+// }
 
-class Athlete6 extends Person6 {
-    constructor(name, yearOfBirth, job, olympicGames, medals) {
-        super(name, yearOfBirth, job);
-        this.olympicGames = olympicGames;
-        this.medals = medals;
-    }
+// class Athlete6 extends Person6 {
+//     constructor(name, yearOfBirth, job, olympicGames, medals) {
+//         super(name, yearOfBirth, job);
+//         this.olympicGames = olympicGames;
+//         this.medals = medals;
+//     }
     
-    wonMedal() {
-        this.medals++;
-        console.log(this.medals);
-    }
-}
+//     wonMedal() {
+//         this.medals++;
+//         console.log(this.medals);
+//     }
+// }
 
-const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
+// const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
 
-johnAthlete6.wonMedal();
-johnAthlete6.calculateAge();
+// johnAthlete6.wonMedal();
+// johnAthlete6.calculateAge();
 
 /////////////////////////////////
 // CODING CHALLENGE
