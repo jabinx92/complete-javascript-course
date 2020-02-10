@@ -725,6 +725,8 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 //         this.job = job;
 //     }
 
+
+
 //     calculateAge() {
 //         var age = new Date().getFullYear() - this.yearOfBirth;
 //         console.log(age);
