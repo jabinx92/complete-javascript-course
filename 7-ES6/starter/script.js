@@ -72,6 +72,7 @@
 //     if(passedTest) {
 //         firstName = 'Johnny';
 //     }
+//      //Template Strings
 //     console.log(`${firstName}, born in ${yearOfBirth} is now officially allowed to drive a car.`);
 // }
 
@@ -676,7 +677,7 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 // }
 
 // const john7 = new Person7('Johnny', 1992, 5.8);
-// const jessie = new Person7('Jessie',1994, 5.4);
+// const jessie = new Person7('Jessie',1994, 5.6);
 // john7.calculateAge()
 // jessie.calculateAge()
 
@@ -753,7 +754,6 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 
 /////////////////////////////////
 // CODING CHALLENGE
-
 /*
 
 Suppose that you're working in a small town administration, and you're in charge of two town elements:
@@ -774,4 +774,59 @@ All the report data should be printed to the console.
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 
 */
+let parkAge = [];
 
+class Parks {
+    constructor (name, buildYear, trees, parkArea) {
+        this.name = name;
+        this.buildYear = buildYear;
+        this.trees = trees;
+        this.parkArea = parkArea;
+        parkAge.push(2020 - this.buildYear);
+    }
+
+    calculateTreeDensity() {
+        var density = `${this.name} has a tree density of ${this.trees / this.parkArea} trees per square km`;
+        console.log(density);
+    }
+
+    moreThan1000Trees() {
+        if(this.trees >= 1000) {
+            console.log(`${this.name} has more than 1000 trees`)
+        }
+        
+    }
+
+}
+
+class Street {
+    constructor (name, buildYear, length, size = normal) {
+        this.name = name;
+        this.buildYear = buildYear;
+        this.length = length;
+        this.size = size;
+    }
+}
+
+
+const park1 = new Parks('Muirwood', 1990, 10, 2.58999);
+// console.log(park1);
+
+const park2 = new Parks('Val Vista', 2005,100, 7.76996);
+
+const park3 = new Parks('Stoneridge', 1950, 1000, 1036);
+
+
+const reducer = parkAge.reduce((accumlator, currentValue) => accumlator + currentValue);
+
+// console.log(parkAge)
+console.log(`----PARKS REPORT----`);
+console.log(`Our ${parkAge.length} parks have an average of ${reducer / parkAge.length} years.`);
+park1.calculateTreeDensity();
+park2.calculateTreeDensity();
+park3.calculateTreeDensity();
+park1.moreThan1000Trees();
+park2.moreThan1000Trees();
+park3.moreThan1000Trees();
+
+console.log(`----STREETS REPORT----`);
