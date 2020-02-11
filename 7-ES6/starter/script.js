@@ -775,6 +775,8 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
 */
 let parkAge = [];
+let treeOver1000 = [];
+let streetAge = [];
 
 class Parks {
     constructor (name, buildYear, trees, parkArea) {
@@ -783,6 +785,9 @@ class Parks {
         this.trees = trees;
         this.parkArea = parkArea;
         parkAge.push(2020 - this.buildYear);
+        treeOver1000.push({name : this.name,
+            trees : this.trees});
+
     }
 
     calculateTreeDensity() {
@@ -794,18 +799,23 @@ class Parks {
         if(this.trees >= 1000) {
             console.log(`${this.name} has more than 1000 trees`)
         }
-        
     }
 
 }
 
 class Street {
-    constructor (name, buildYear, length, size = normal) {
+    constructor (name, buildYear, length, size = 'normal') {
         this.name = name;
         this.buildYear = buildYear;
         this.length = length;
         this.size = size;
+        streetAge.push(this.length)
     }
+
+    printSentence() {
+        console.log(`${this.name}, built in ${this.buildYear}, is a ${this.size} street.`)
+    }
+
 }
 
 
@@ -816,12 +826,21 @@ const park2 = new Parks('Val Vista', 2005,100, 7.76996);
 
 const park3 = new Parks('Stoneridge', 1950, 1000, 1036);
 
+const street1 = new Street('Alvord Way',1950, 1, 'tiny');
+const street2 = new Street('Olive Drive', 1969, 2,'small');
+const street3 = new Street('Kerry Hill Street',2019, 3, 'big');
+const street4 = new Street('Turk Street',1900, 4);
 
-const reducer = parkAge.reduce((accumlator, currentValue) => accumlator + currentValue);
+
+const parkReducer = parkAge.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+const streetReducer = streetAge.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+
 
 // console.log(parkAge)
 console.log(`----PARKS REPORT----`);
-console.log(`Our ${parkAge.length} parks have an average of ${reducer / parkAge.length} years.`);
+console.log(`Our ${parkAge.length} parks have an average of ${parkReducer / parkAge.length} years.`);
 park1.calculateTreeDensity();
 park2.calculateTreeDensity();
 park3.calculateTreeDensity();
@@ -830,3 +849,10 @@ park2.moreThan1000Trees();
 park3.moreThan1000Trees();
 
 console.log(`----STREETS REPORT----`);
+
+console.log(`Our ${streetAge.length} streets have a total length of ${streetReducer} miles length, with an average of ${streetReducer / streetAge.length} miles length.`);
+
+street1.printSentence();
+street2.printSentence();
+street3.printSentence();
+street4.printSentence();
