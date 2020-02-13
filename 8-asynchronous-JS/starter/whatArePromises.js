@@ -64,25 +64,25 @@ Promises Stats - pending -> event happens to settled/resolved -> fulfilled or re
 //     }
 //   }
   
-  function watchTutorialPromise() {
-    let userLeft = false
-    let userWatchingCatMeme = true
-    return new Promise((resolve, reject) => {
-      if (userLeft) {
-        reject({
-          name: 'User Left', 
-          message: ':('
-        })
-      } else if (userWatchingCatMeme) {
-        reject({
-          name: 'User Watching Cat Meme',
-          message: 'WebDevSimplified < Cat' 
-        })
-      } else {
-        resolve('Thumbs up and Subscribe')
-      }
-    })
-  }
+  // function watchTutorialPromise() {
+  //   let userLeft = false
+  //   let userWatchingCatMeme =  
+  //   return new Promise((resolve, reject) => {
+  //     if (userLeft) {
+  //       reject({
+  //         name: 'User Left', 
+  //         message: ':('
+  //       })
+  //     } else if (userWatchingCatMeme) {
+  //       reject({
+  //         name: 'User Watching Cat Meme',
+  //         message: 'WebDevSimplified < Cat' 
+  //       })
+  //     } else {
+  //       resolve('Thumbs up and Subscribe')
+  //     }
+  //   })
+  // }
   
 //   watchTutorialCallback(message => {
 //     console.log(message)
@@ -90,11 +90,11 @@ Promises Stats - pending -> event happens to settled/resolved -> fulfilled or re
 //     console.log(error.name + ' ' + error.message)
 //   })
   
-  watchTutorialPromise().then(message => {
-    console.log(message)
-  }).catch(error => {
-    console.log(error.name + ' ' + error.message)
-  })
+  // watchTutorialPromise().then(message => {
+  //   console.log(message)
+  // }).catch(error => {
+  //   console.log(error.name + ' ' + error.message)
+  // })
   
 //   const recordVideoOne = new Promise((resolve, reject) => {
 //     resolve('Video 1 Recorded')
