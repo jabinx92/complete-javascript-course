@@ -72,6 +72,7 @@
 //     if(passedTest) {
 //         firstName = 'Johnny';
 //     }
+//      //Template Strings
 //     console.log(`${firstName}, born in ${yearOfBirth} is now officially allowed to drive a car.`);
 // }
 
@@ -215,32 +216,32 @@ var box5 = {
 
 
 
-// //ES6
-const box6 = {
-    color: 'green',
-    position: 1,
-    clickMe: function () {
-        document.querySelector('.green').addEventListener('click', () => {
-            var str = `This is box number ${this.position} and it is ${this.color}`;
-            alert(str);
-        });
-    }
-}
+// // //ES6
+// const box6 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         document.querySelector('.green').addEventListener('click', () => {
+//             var str = `This is box number ${this.position} and it is ${this.color}`;
+//             alert(str);
+//         });
+//     }
+// }
 
-box6.clickMe();
+// box6.clickMe();
 
-const box66 = {
-    color: 'blue',
-    position: 2,
-    clickMe : function () {
-        document.querySelector('.blue').addEventListener('click', () => {
-            var str = `This is box number ${this.position} and it is ${this.color}.`
-            alert(str);
-        });
-    }
-}
+// const box66 = {
+//     color: 'blue',
+//     position: 2,
+//     clickMe : function () {
+//         document.querySelector('.blue').addEventListener('click', () => {
+//             var str = `This is box number ${this.position} and it is ${this.color}.`
+//             alert(str);
+//         });
+//     }
+// }
 
-box66.clickMe();
+// box66.clickMe();
 
 const box77 = {
     color: 'orange',
@@ -699,7 +700,7 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 // }
 
 // const john7 = new Person7('Johnny', 1992, 5.8);
-// const jessie = new Person7('Jessie',1994, 5.4);
+// const jessie = new Person7('Jessie',1994, 5.6);
 // john7.calculateAge()
 // jessie.calculateAge()
 
@@ -748,6 +749,8 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 //         this.job = job;
 //     }
 
+
+
 //     calculateAge() {
 //         var age = new Date().getFullYear() - this.yearOfBirth;
 //         console.log(age);
@@ -774,7 +777,6 @@ function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
 
 /////////////////////////////////
 // CODING CHALLENGE
-
 /*
 
 Suppose that you're working in a small town administration, and you're in charge of two town elements:
@@ -795,4 +797,174 @@ All the report data should be printed to the console.
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 
 */
+// let parkAge = [];
+// let treeOver1000 = [];
+// let streetAge = [];
 
+// class Parks {
+//     constructor (name, buildYear, trees, parkArea) {
+//         this.name = name;
+//         this.buildYear = buildYear;
+//         this.trees = trees;
+//         this.parkArea = parkArea;
+//         parkAge.push(2020 - this.buildYear);
+//         treeOver1000.push({name : this.name,
+//         trees : this.trees});
+//     }
+
+//     calculateTreeDensity() {
+//         var density = `${this.name} has a tree density of ${this.trees / this.parkArea} trees per square km`;
+//         console.log(density);
+//     }
+
+//     moreThan1000Trees() {
+//         if(this.trees >= 1000) {
+//             console.log(`${this.name} has more than 1000 trees`)
+//         }
+//     }
+//     parkReducer() {
+
+//         parkAge.reduce((accumulator, currentValue) => accumulator + currentValue);
+//     }
+
+// }
+
+// class Street {
+//     constructor (name, buildYear, length, size = 'normal') {
+//         this.name = name;
+//         this.buildYear = buildYear;
+//         this.length = length;
+//         this.size = size;
+//         streetAge.push(this.length)
+//     }
+
+//     printSentence() {
+//         console.log(`${this.name}, built in ${this.buildYear}, is a ${this.size} street.`)
+//     }
+
+// }
+
+
+// const park1 = new Parks('Muirwood', 1990, 10, 2.58999);
+// // console.log(park1);
+
+// const park2 = new Parks('Val Vista', 2005,100, 7.76996);
+
+// const park3 = new Parks('Stoneridge', 1950, 1000, 1036);
+
+// const street1 = new Street('Alvord Way',1950, 1, 'tiny');
+// const street2 = new Street('Olive Drive', 1969, 2,'small');
+// const street3 = new Street('Kerry Hill Street',2019, 3, 'big');
+// const street4 = new Street('Turk Street',1900, 4);
+
+
+// const parkReducer = parkAge.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+// const streetReducer = streetAge.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+
+
+// // console.log(parkAge)
+// console.log(`----PARKS REPORT----`);
+// console.log(`Our ${parkAge.length} parks have an average of ${parkReducer / parkAge.length} years.`);
+// park1.calculateTreeDensity();
+// park2.calculateTreeDensity();
+// park3.calculateTreeDensity();
+// park1.moreThan1000Trees();
+// park2.moreThan1000Trees();
+// park3.moreThan1000Trees();
+
+// console.log(`----STREETS REPORT----`);
+
+// console.log(`Our ${streetAge.length} streets have a total length of ${streetReducer} miles length, with an average of ${streetReducer / streetAge.length} miles length.`);
+
+// street1.printSentence();
+// street2.printSentence();
+// street3.printSentence();
+// street4.printSentence();
+
+/**
+ * udemy example of coding challenge 8
+ */
+
+class Element {
+    constructor(name, buildYear) {
+        this.name = name;
+        this.buildYear = buildYear;
+    }
+}
+
+class Park extends Element {
+    constructor(name, buildYear, area, numTrees){
+        super(name, buildYear);
+        this.area = area; //km2
+        this.numTrees = numTrees;
+    }
+
+    treeDensity() {
+        const density = this.numTrees / this.area;
+        console.log(`${this.name} has a tree density of ${density} trees per square km.`)
+    }
+}
+
+class Street extends Element {
+    constructor(name, buildYear, length, size = 3) {
+        super(name, buildYear);
+        this.length = length;
+        this.size = size;
+    }
+
+    classifyStreet () {
+        const classification = new Map();
+        classification.set(1, 'tiny');
+        classification.set(2, 'small');
+        classification.set(3, 'normal');
+        classification.set(4, 'big');
+        classification.set(5, 'huge');
+        console.log(`${this.name}, built in ${this.buildYear}, is a ${classification.get(this.size)} street.`);
+
+    }
+}
+
+const allParks = [new Park('Green Park', 1987, 0.2, 215),new Park('National Park', 1894, 2.9, 3541),new Park('Oak Park', 1953, 0.4, 949)];
+
+const allStreets = [new Street('Ocean Avenue', 1999, 1.1, 4),new Street('EverGreen Street', 2008, 2.7, 2),new Street('4th Street', 2015, 0.8),new Street('Sunset Boulevard', 1982, 2.5, 5)];
+
+function calc(arr) {
+
+    const sum = arr.reduce((previous, cur, index) => previous + cur, 0);
+    
+    return [sum, sum / arr.length];
+
+}
+
+function reportParks(p) {
+    console.log('-----PARKS REPORT-----');
+
+    //Density
+    p.forEach(el => el.treeDensity());
+
+    //Average Age
+    const ages = p.map(el => new Date().getFullYear() - el.buildYear);
+    const [totalAge, avgAge] = calc(ages);
+    console.log(`Our ${p.length} parks have an average of ${avgAge} years.`);
+
+
+    //Which park has more than 1000 trees
+    const i = p.map(el => el.numTrees).findIndex(el => el >= 1000);
+    console.log(`${p[i].name} has more than 1000 trees.`);
+}
+
+function reportStreets(s) {
+    console.log('-----STREETS REPORT-----');
+
+    //Total and average length of the town's streets
+    const [totalLength, avgLength] = calc(s.map(el => el.length));
+    console.log(`Our ${s.length} streets haave a total length of ${totalLength} km, with an average of ${avgLength} km.`)
+
+    //Classify sizes
+    s.forEach(el => el.classifyStreet());
+}
+
+reportParks(allParks);
+reportStreets(allStreets);
