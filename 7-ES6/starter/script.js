@@ -242,6 +242,18 @@ const box66 = {
 
 box66.clickMe();
 
+const box77 = {
+    color: 'orange',
+    position : 3,
+    clickMe: function () {
+        document.querySelector('.orange').addEventListener('click', () => {
+            var str = `This is box number ${this.position}, and it is ${this.color}.`;
+            alert(str);
+        })
+    }
+}
+box77.clickMe();
+
 
 /*
 const box66 = {
@@ -258,10 +270,13 @@ const box66 = {
 box66.clickMe();
 */
 
-// function Person(name) {
-//     this.name = name;
-// }
+function Person(name) {
+    this.name = name;
+}
 
+function Person1(name) {
+    this.name = name;
+}
 // //ES5
 // Person.prototype.myFriends5 = function (friends) {
 //     var arr = friends.map(function (el) {
@@ -271,19 +286,27 @@ box66.clickMe();
 //     console.log(arr);
 // }
 
-// var friends = ['Bob', 'Jane', 'Mark'];
+var friends = ['Bob', 'Jane', 'Mark'];
 // new Person('John').myFriends5(friends);
 
 // // ES6
-// Person.prototype.myFriends6 = function (friends) {
-//     var arr = friends.map(el => 
-//     `${this.name} is friends with ${el}`
-//     );
+Person.prototype.myFriends6 = function (friends) {
+    var arr = friends.map(el => 
+    `${this.name} is friends with ${el}`
+    );
 
-//     console.log(arr);
-// }
+    console.log(arr);
+}
 
-// new Person('Mike').myFriends6(friends);
+new Person('Mike').myFriends6(friends);
+
+Person1.prototype.myFriends66 = function (friends) {
+    var arr = friends.map(el => `${this.name} is friends with ${el}.`);
+    console.log(arr);
+}
+
+new Person1('Johnny').myFriends66(friends);
+
 
 /**
  * Lecture: Destructuring
